@@ -41,7 +41,7 @@ function App() {
       }
       sendGetRequest()
   
-    }, []);
+    }, [dispatch]);
 
   return (
     <Router>
