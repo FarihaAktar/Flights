@@ -2,9 +2,7 @@ import React from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { loadData } from '../../Redux/rootSlice';
-import LastMonthFlights from './LastMonthFlights';
 
-import LastYearFlights from './LastYearFlights';
 
 const FlightDetails = () => {
 

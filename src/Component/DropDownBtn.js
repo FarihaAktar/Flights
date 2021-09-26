@@ -1,9 +1,9 @@
 import Dropdown from '@restart/ui/esm/Dropdown';
 import React from 'react';
-import { Col, Container, DropdownButton, Stack } from 'react-bootstrap';
+import { Container, DropdownButton, Stack } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-import { lastYearData, loadData, removeData, setFailedFlights, setLastMonthData, setLastYearData, setSuccessFlights } from '../Redux/rootSlice';
+import { loadData, setFailedFlights, setLastMonthData, setLastYearData, setNotUpComingFlights, setSuccessFlights, setUpcomingFlights } from '../Redux/rootSlice';
 
 const DropDownBtn = () => {
 
@@ -28,24 +28,36 @@ const DropDownBtn = () => {
     }
     // handle Status function
     const handleStatus = (status) => {
-        if(status === true){
+        if (status === true) {
             let successFlightData = flights.filter(flight => flight.launch_success === status)
             dispatch(setSuccessFlights(successFlightData))
         }
 
-        if(status === false){
+        if (status === false) {
             let failedFlightData = flights.filter(flight => flight.launch_success === status)
             console.log(failedFlightData)
             dispatch(setFailedFlights(failedFlightData))
         }
-      
+
     }
 
+    // handle upcoming function
+    const handleUpcoming = (status) => {
+        if (status === true) {
+            let trueUpcomingData = flights.filter(flight => flight.upcoming === status)
+            dispatch(setUpcomingFlights(trueUpcomingData))
+        }
+        if (status === false) {
+            let falseUpcomingData = flights.filter(flight => flight.upcoming === status)
+            dispatch(setNotUpComingFlights(falseUpcomingData))
+        }
 
+    }
 
     return (
         <Container className='mt-3'>
             <Stack direction="horizontal" gap={4}>
+                {/* launch date dropdown */}
                 <DropdownButton id="dropdown-basic-button" title="Launch date">
                     <Dropdown.Item className='border-0'>
                         <Link to='/last-Week'>
@@ -64,25 +76,33 @@ const DropDownBtn = () => {
                         </NavLink>
                     </Dropdown.Item>
                 </DropdownButton>
-
+                {/* launch status dropdown */}
                 <DropdownButton id="dropdown-basic-button" title="Launch Status">
                     <Dropdown.Item className='mb-2 border-0' >
                         <NavLink onClick={() => handleStatus(true)} to='/success-flights'>
                             Success
                         </NavLink>
                     </Dropdown.Item>
-
+                    <br />
                     <Dropdown.Item className='border-0' >
                         <NavLink onClick={() => handleStatus(false)} to='/failed-flights'>
                             Failure
                         </NavLink>
                     </Dropdown.Item>
                 </DropdownButton>
-
+                {/* upcoming status dropdown */}
                 <DropdownButton id="dropdown-basic-button" title="Upcoming">
-                    <Dropdown.Item className='mb-2 border-0' >True</Dropdown.Item>
+                    <Dropdown.Item className='mb-2 border-0' >
+                        <NavLink onClick={() => handleUpcoming(true)} to='/upcoming-true'>
+                            True
+                        </NavLink>
+                    </Dropdown.Item>
                     <br />
-                    <Dropdown.Item className='border-0'>False</Dropdown.Item>
+                    <Dropdown.Item className='border-0'>
+                        <NavLink onClick={() => handleUpcoming(false)} to='upcoming-false'>
+                            False
+                        </NavLink>
+                    </Dropdown.Item>
                 </DropdownButton>
             </Stack>
         </Container>

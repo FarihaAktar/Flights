@@ -9,8 +9,7 @@ import DropDownBtn from './Component/DropDownBtn';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Home from './Component/Home';
 import LastYearFlights from './Component/FLights/LastYearFlights';
@@ -18,6 +17,9 @@ import LastMonthFlights from './Component/FLights/LastMonthFlights';
 import LastWeekFlights from './Component/FLights/LastWeekFlights';
 import SuccessStatus from './Component/FLights/SuccessStatus';
 import FailureStatus from './Component/FLights/FailureStatus';
+import UpcomingTrue from './Component/FLights/UpcomingTrue';
+import UpcomingFalse from './Component/FLights/UpcomingFalse';
+import RocketName from './Component/FLights/RocketName';
 
 
 function App() {
@@ -66,6 +68,15 @@ function App() {
         </Route>
         <Route path="/failed-flights">
           <FailureStatus />
+        </Route>
+        <Route path="/upcoming-true">
+          <UpcomingTrue />
+        </Route>
+        <Route path="/upcoming-false">
+          <UpcomingFalse />
+        </Route>
+        <Route path="/rockets">
+          <RocketName />
         </Route>
         
 

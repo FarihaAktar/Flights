@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   flightsData: [],
+  rocketData:[],
   dataFromLastYear: [],
   dataFromLastMonth: [],
   dataFromLastWeek: [],
@@ -17,6 +18,9 @@ export const rootSlice = createSlice({
   reducers: {
     addData: (state, { payload }) => {
       state.flightsData = payload
+    },
+    setRocketData: (state, { payload }) => {
+      state.rocketData = payload
     },
     setLastYearData: (state, { payload }) => {
       state.dataFromLastYear = payload
@@ -64,10 +68,13 @@ export const rootSlice = createSlice({
 })
 
 
-export const { addData, setLastYearData, setLastMonthData, setSuccessFlights, setFailedFlights} = rootSlice.actions
+export const { addData, setRocketData, setLastYearData, setLastMonthData, setSuccessFlights, setFailedFlights, setUpcomingFlights, setNotUpComingFlights } = rootSlice.actions
 export const loadData = (state) => state.flights.flightsData;
+export const loadRocketData = (state) => state.flights.rocketData;
 export const lastYearData = (state) => state.flights.dataFromLastYear;
 export const lastMonthData = (state) => state.flights.dataFromLastMonth;
 export const succeedFlightData = (state) => state.flights.successFlights;
 export const failedFlightData = (state) => state.flights.failedFlights;
+export const trueFlightData = (state) => state.flights.upcomingFlights;
+export const falseFlightData = (state) => state.flights.notUpcomingFlights;
 export default rootSlice.reducer;
