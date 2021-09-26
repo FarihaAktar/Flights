@@ -11,7 +11,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Home from './Component/Home';
+import Home from './Component/Home/Home';
 import LastYearFlights from './Component/FLights/LastYearFlights';
 import LastMonthFlights from './Component/FLights/LastMonthFlights';
 import LastWeekFlights from './Component/FLights/LastWeekFlights';

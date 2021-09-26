@@ -7,7 +7,7 @@ import { loadData } from '../../Redux/rootSlice';
 const FlightDetails = () => {
 
     const flights = useSelector(loadData)
-    console.log(flights)
+    // console.log(flights)
 
     return (
         <Container className='mt-5'>
