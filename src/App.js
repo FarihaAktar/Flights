@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import './App.css';
 import NavigationBar from './Component/NavigationBar';
@@ -22,6 +21,7 @@ import UpcomingFalse from './Component/FLights/UpcomingFalse';
 import RocketName from './Component/FLights/RocketName';
 
 
+
 function App() {
 
   const dispatch = useDispatch()
@@ -29,9 +29,7 @@ function App() {
   useEffect(() => {
       const sendGetRequest = async () => {
         await axios.get("https://api.spacexdata.com/v3/launches")
-          // .then(res => res.json())
           .then(res => {
-          //   console.log(res.data.splice(0, 20))
             dispatch(addData(res?.data))
           })
           .catch(err => {

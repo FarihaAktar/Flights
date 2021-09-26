@@ -43,27 +43,6 @@ export const rootSlice = createSlice({
     setNotUpComingFlights: (state, { payload }) => {
       state.notUpcomingFlights = payload
     },
-    // removeData: (state, { payload }) => {
-    //   if (payload.launch_year === '2020') {
-    //     // state.flightsData = [];
-    //     state.dataFromLastWeek = [];
-    //     state.dataFromLastMonth = [];
-    //     state.successFlights = [];
-    //     state.failedFlights = [];
-    //     state.upcomingFlights = [];
-    //     state.notUpcomingFlights = []
-    //   }
-
-    //   if (new Date(`${payload.launch_date_utc}`).getMonth() === 11) {
-    //     // state.flightsData = [];
-    //     state.dataFromLastWeek = [];
-    //     state.dataFromLastYear = [];
-    //     state.successFlights = [];
-    //     state.failedFlights = [];
-    //     state.upcomingFlights = [];
-    //     state.notUpcomingFlights = []
-    //   }
-    // }
   },
 })
 

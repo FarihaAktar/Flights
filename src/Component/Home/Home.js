@@ -5,9 +5,9 @@ import FlightDetails from '../FLights/FlightDetails';
 const Home = () => {
 
     return (
-        <>
+        <div>
             <FlightDetails/>
-        </>
+        </div>
     )
 }
 
