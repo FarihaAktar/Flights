@@ -29,3 +29,11 @@ npm i axios
 ## Dev-dependencies:
 
 npm i --save-dev react-test-renderer jest-dom
+
+
+## deployed in Netlify
+
+1. click new site from git
+2. click github
+3. choose repo
+4. click deploy site
